@@ -41,12 +41,16 @@ const between1And20 = (x) => {
   }
 };
 
-const isScore0 = (x) => {
+const isScore0 = () => {
   if (scoreholder === 0) {
     // score.textContent = 0;
-    number.textContent = x;
+    number.textContent = "?";
     message.textContent = "You loose the game";
     body.style.backgroundColor = "red";
+    header.style.color = "black";
+    main.style.color = "black";
+    number.style.color = "black";
+
     console.log("Tested.....");
   }
 };
