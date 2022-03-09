@@ -42,28 +42,27 @@ const between1And20 = (x) => {
 };
 
 const isScore0 = (x) => {
-  if (x === 0) {
+  if (scoreholder === 0) {
     // score.textContent = 0;
-    number.textContent = guess;
+    number.textContent = x;
     message.textContent = "You loose the game";
     body.style.backgroundColor = "red";
+    console.log("Tested.....");
   }
 };
 
-const islow = (x) => {
-  if (x > 0) {
+const islow = () => {
+  if (scoreholder > 0) {
     message.textContent = "Too Low";
     // x = score.textContent;
-    score.textContent = --x;
-    isScore0(x);
+    score.textContent = --scoreholder;
   }
 };
 
-const isHigh = (x) => {
-  if (x > 0) {
+const isHigh = () => {
+  if (scoreholder > 0) {
     message.textContent = "Too High";
-    score.textContent = --x;
-    isScore0(x);
+    score.textContent = --scoreholder;
   }
 };
 
@@ -72,6 +71,7 @@ const checkNumber = () => {
   scoreholder = Number(score.textContent);
 
   between1And20(guess);
+  isScore0(guess);
 
   if (!guess) {
     // console.log(guess, typeof guess);
@@ -87,9 +87,11 @@ const checkNumber = () => {
     header.style.color = "black";
     main.style.color = "black";
   } else if (randomNumber < guess) {
-    isHigh(scoreholder);
+    isHigh();
+    isScore0();
   } else {
-    islow(scoreholder);
+    islow();
+    isScore0();
   }
 };
 
